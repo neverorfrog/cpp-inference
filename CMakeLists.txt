@@ -66,10 +66,11 @@ endif()
 # --------------------------------------------------------------
 
 # ----------- Find onnxruntime ---------------------------------
-set(ONNX_ROOT "/home/neverorfrog/code/libs/onnxruntime/build/Linux/RelWithDebInfo/libonnxruntime.so")
+set(ONNX_ROOT "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime/build/Linux/RelWithDebInfo/libonnxruntime.so")
 message(STATUS "onnxruntime_ROOT: ${ONNX_ROOT}")
 add_library(onnxruntime SHARED IMPORTED)
 set_target_properties(onnxruntime PROPERTIES IMPORTED_LOCATION "${ONNX_ROOT}")
+target_include_directories(onnxruntime INTERFACE "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime/include")
 # --------------------------------------------------------------
 
 # ----------- My library and executable -------------------------
@@ -90,14 +91,12 @@ target_link_libraries(et_runner PUBLIC
   optimized_native_cpu_ops_lib
 )
 
-add_library(onnx_runner STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/onnx_runner.cpp
-)
-target_link_libraries(onnx_runner PUBLIC cxx_setup onnxruntime)
-target_include_directories(onnx_runner PRIVATE "/home/neverorfrog/code/libs/onnxruntime/include")
+add_executable(onnx_test ${CMAKE_CURRENT_SOURCE_DIR}/src/onnx_test.cpp)
+target_include_directories(onnx_test PRIVATE "{CMAKE_CURRENT_SOURCE_DIR}/external/onnxruntime/include")
+target_link_libraries(onnx_test PUBLIC cxx_setup onnxruntime)
 
 add_executable(test ${CMAKE_CURRENT_SOURCE_DIR}/src/test.cpp)
-target_link_libraries(test PRIVATE cxx_setup et_runner onnx_runner)
+target_link_libraries(test PRIVATE cxx_setup et_runner)
 # --------------------------------------------------------------
 
 
