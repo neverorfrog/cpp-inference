@@ -1,0 +1,17 @@
+ipykernel
+ipywidgets
+scikit-learn==1.4
+matplotlib
+pyyaml
+cmake
+scipy
+omegaconf
+tomli
+pre-commit
+flake8
+black
+mypy
+zstd
+onnx
+onnxruntime
+onnxscript

@@ -1,0 +1,4 @@
+[submodule "external/executorch"]
+	path = external/executorch
+	url = https://github.com/pytorch/executorch.git
+	branch = v0.2.0
