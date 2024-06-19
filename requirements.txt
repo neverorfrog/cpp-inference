@@ -15,3 +15,6 @@ zstd
 onnx
 onnxruntime
 onnxscript
+conan
+librosa
+imbalanced-learn
