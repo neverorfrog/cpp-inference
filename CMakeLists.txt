@@ -60,8 +60,8 @@ project(cpp-inference VERSION 0.1 LANGUAGES CXX)
 # ----------- Find onnxruntime ---------------------------------
 add_library(onnxruntime SHARED IMPORTED)
 set_target_properties(onnxruntime PROPERTIES 
-  IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime/lib/libonnxruntime.so")
-target_include_directories(onnxruntime INTERFACE "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime/include")
+  IMPORTED_LOCATION "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime18/lib/libonnxruntime.so")
+target_include_directories(onnxruntime INTERFACE "${CMAKE_CURRENT_LIST_DIR}/external/onnxruntime18/include")
 # --------------------------------------------------------------
 
 # ----------- My library and executable -------------------------
