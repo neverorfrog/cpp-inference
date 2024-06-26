@@ -2,6 +2,3 @@
 	path = external/executorch
 	url = https://github.com/pytorch/executorch.git
 	branch = v0.2.0
-[submodule "external/onnxruntime"]
-	path = external/onnxruntime
-	url = https://github.com/Microsoft/onnxruntime.git
